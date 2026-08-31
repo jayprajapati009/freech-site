@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "version": "0.1.0-sprint1",
+    "date": "2026-08-31",
+    "prerelease": true,
+    "features": [
+      "Hindi + Gujarati phonetic typing engine with spelling-variant tolerance",
+      "Clipboard history manager",
+      "Voice input: tap-to-record, on-device Vosk speech recognition, Latin-letter output"
+    ],
+    "apk": "https://github.com/jayprajapati009/freech-site/releases/download/test-build-1/freech-v0.1.0-sprint1-debug.apk",
+    "size_mb": 198
+  }
+]

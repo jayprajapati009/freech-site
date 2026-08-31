@@ -4,68 +4,97 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Freech</title>
-<meta name="description" content="Type Hindi and Gujarati in Latin letters — the way you already text. Free Android keyboard, no ads, no cloud.">
+<meta name="description" content="Type Hindi and Gujarati in Latin letters — the way you already text. Free Android keyboard, on-device voice input, no ads, no cloud.">
 <style>
   :root {
     --bg: #faf9f7;
+    --bg-alt: #f2ede4;
     --surface: #ffffff;
     --border: #e6e2db;
     --text: #1c1b1a;
     --text-dim: #6b6660;
     --accent: #b34700;
+    --accent-2: #0f6e5c;
     --accent-text: #ffffff;
     --code-bg: #f1efe9;
+    --shadow: 0 1px 2px rgba(20,15,5,0.04), 0 8px 24px rgba(20,15,5,0.05);
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --bg: #171512;
+      --bg: #14120f;
+      --bg-alt: #1c1815;
       --surface: #201d19;
-      --border: #35302a;
+      --border: #34302a;
       --text: #f2ece2;
       --text-dim: #a89e91;
       --accent: #ff8a3d;
+      --accent-2: #4fd1b5;
       --accent-text: #1c1200;
       --code-bg: #2a251f;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
     }
   }
   * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
   body {
     margin: 0;
     background: var(--bg);
     color: var(--text);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    line-height: 1.5;
+    line-height: 1.55;
   }
-  main {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 4rem 1.5rem 6rem;
+  a { color: inherit; }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 1.5rem; }
+
+  /* ---------- hero ---------- */
+  .hero {
+    background: linear-gradient(180deg, var(--bg-alt), var(--bg) 70%);
+    padding: 4.5rem 0 3.5rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
   }
-  header { text-align: center; margin-bottom: 3rem; }
+  .badge {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--accent-2);
+    background: color-mix(in srgb, var(--accent-2) 12%, transparent);
+    padding: 0.3em 0.8em;
+    border-radius: 999px;
+    margin-bottom: 1.25rem;
+  }
   .wordmark {
-    font-size: 2.75rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    margin: 0 0 0.5rem;
+    font-size: clamp(2.4rem, 6vw, 3.4rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin: 0 0 0.6rem;
   }
   .tagline {
     color: var(--text-dim);
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     max-width: 480px;
+    margin: 0 auto 1.5rem;
+  }
+  .type-demo {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 1rem 1.4rem;
     margin: 0 auto 2rem;
+    font-size: 1.05rem;
   }
-  .not-translate {
-    font-size: 0.95rem;
-    color: var(--text-dim);
-    max-width: 520px;
-    margin: 0 auto 2rem;
-  }
-  .not-translate code {
-    background: var(--code-bg);
-    padding: 0.1em 0.4em;
-    border-radius: 4px;
-    font-size: 0.9em;
-  }
+  .type-demo .row { display: flex; gap: 0.6em; align-items: baseline; }
+  .type-demo .lbl { color: var(--text-dim); font-size: 0.8rem; width: 3.2em; text-align: right; flex-shrink: 0; }
+  .type-demo .val { font-weight: 600; }
+  .type-demo .val.native { color: var(--text-dim); font-weight: 400; font-size: 0.95em; }
+
   .btn {
     display: inline-flex;
     align-items: center;
@@ -73,133 +102,226 @@
     background: var(--accent);
     color: var(--accent-text);
     text-decoration: none;
-    font-weight: 600;
-    padding: 0.9em 1.6em;
+    font-weight: 700;
+    padding: 0.95em 1.7em;
     border-radius: 10px;
     font-size: 1.05rem;
+    box-shadow: var(--shadow);
   }
   .btn-sub {
     display: block;
-    margin-top: 0.6rem;
+    margin-top: 0.7rem;
     font-size: 0.85rem;
     color: var(--text-dim);
   }
-  section { margin-top: 3.5rem; }
+
+  /* ---------- sections ---------- */
+  section { padding: 3.5rem 0; }
+  section + section { border-top: 1px solid var(--border); }
   h2 {
-    font-size: 1.1rem;
+    font-size: 0.85rem;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.08em;
     color: var(--text-dim);
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 0.6rem;
-    margin-bottom: 1.25rem;
+    margin: 0 0 1.5rem;
   }
-  .version-card {
+
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 1rem;
+  }
+  .feature {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 12px;
-    padding: 1.1rem 1.3rem;
-    margin-bottom: 0.9rem;
+    padding: 1.2rem 1.3rem;
   }
-  .version-row {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 1rem;
-    flex-wrap: wrap;
+  .feature .icon { font-size: 1.4rem; margin-bottom: 0.5rem; display: block; }
+  .feature h3 { font-size: 1rem; margin: 0 0 0.35rem; }
+  .feature p { margin: 0; color: var(--text-dim); font-size: 0.92rem; }
+
+  .install-steps { color: var(--text-dim); font-size: 0.95rem; padding-left: 1.2rem; }
+  .install-steps li { margin-bottom: 0.5rem; }
+
+  /* ---------- version table ---------- */
+  .table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface);
   }
-  .version-name { font-weight: 700; font-size: 1.05rem; }
-  .version-date { color: var(--text-dim); font-size: 0.85rem; }
-  .version-notes {
-    margin: 0.5rem 0 0.75rem;
+  table { width: 100%; border-collapse: collapse; font-size: 0.92rem; min-width: 560px; }
+  th, td { text-align: left; padding: 0.85rem 1rem; vertical-align: top; }
+  thead th {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
     color: var(--text-dim);
-    font-size: 0.92rem;
+    border-bottom: 1px solid var(--border);
   }
-  .version-dl {
+  tbody tr + tr td { border-top: 1px solid var(--border); }
+  td.ver { font-weight: 700; white-space: nowrap; }
+  td.ver .tag {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    background: color-mix(in srgb, var(--accent) 15%, transparent);
+    color: var(--accent);
+    padding: 0.15em 0.5em;
+    border-radius: 5px;
+    margin-left: 0.5em;
+  }
+  td.date { color: var(--text-dim); white-space: nowrap; }
+  td.notes ul { margin: 0; padding-left: 1.1em; }
+  td.notes li { margin-bottom: 0.2em; }
+  td.dl a {
     color: var(--accent);
     font-weight: 600;
     text-decoration: none;
-    font-size: 0.92rem;
+    white-space: nowrap;
   }
-  .version-dl:hover { text-decoration: underline; }
+  td.dl a:hover { text-decoration: underline; }
   .empty-state {
     color: var(--text-dim);
     font-size: 0.95rem;
     text-align: center;
     padding: 2rem 1rem;
-    border: 1px dashed var(--border);
+  }
+
+  /* ---------- dev log ---------- */
+  .devlog {
+    background: var(--surface);
+    border: 1px solid var(--border);
     border-radius: 12px;
+    padding: 1.4rem 1.5rem;
   }
-  .install-steps {
-    color: var(--text-dim);
-    font-size: 0.92rem;
-    padding-left: 1.2rem;
-  }
-  .install-steps li { margin-bottom: 0.4rem; }
+  .devlog p { margin: 0 0 0.9rem; color: var(--text-dim); font-size: 0.94rem; }
+  .devlog p:last-child { margin-bottom: 0; }
+  .devlog strong { color: var(--text); }
+
   footer {
     text-align: center;
-    margin-top: 4rem;
+    padding: 3rem 0 4rem;
     color: var(--text-dim);
     font-size: 0.85rem;
   }
 </style>
 </head>
 <body>
-<main>
-  <header>
-    <div class="wordmark">Freech</div>
+
+<div class="hero">
+  <div class="wrap">
+    <span class="badge">In active development</span>
+    <h1 class="wordmark">Freech</h1>
     <p class="tagline">Type Hindi and Gujarati in Latin letters — the way you already text.</p>
-    <p class="not-translate">Not a translator. You type <code>kem cho</code>, you get <code>kem cho</code> — spelled and suggested correctly, instead of your keyboard treating it as broken English.</p>
+
+    <div class="type-demo">
+      <div class="row"><span class="lbl">you type</span><span class="val">kem cho</span></div>
+      <div class="row"><span class="lbl">you get</span><span class="val">kem cho <span class="native">— not translated, not converted to કેમ છો</span></span></div>
+    </div>
+    <br>
     <a class="btn" id="primary-download" href="#versions">Download latest APK</a>
     <span class="btn-sub" id="primary-download-sub">&nbsp;</span>
-  </header>
+  </div>
+</div>
 
-  <section id="install">
+<section id="features">
+  <div class="wrap">
+    <h2>What it does</h2>
+    <div class="features">
+      <div class="feature">
+        <span class="icon">⌨️</span>
+        <h3>Phonetic typing</h3>
+        <p>Smart suggestions and autocorrect for Hindi/Gujarati spelled in Latin letters — handles spelling variants like "kaise" / "kese" automatically.</p>
+      </div>
+      <div class="feature">
+        <span class="icon">🎙️</span>
+        <h3>Voice input</h3>
+        <p>Tap, speak a full sentence, tap again — get the same Latin-letter text. Runs fully on-device, no cloud, built for messaging.</p>
+      </div>
+      <div class="feature">
+        <span class="icon">📋</span>
+        <h3>Clipboard history</h3>
+        <p>A real clipboard manager built in, not bolted on.</p>
+      </div>
+      <div class="feature">
+        <span class="icon">🔒</span>
+        <h3>Private by design</h3>
+        <p>No account, no cloud, no ads. Everything — typing and voice — runs on your phone.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="install">
+  <div class="wrap">
     <h2>Install</h2>
     <ol class="install-steps">
       <li>Download the APK below and open it on your Android phone (allow "install from unknown sources" if asked — this app isn't on the Play Store).</li>
       <li>Go to <strong>Settings → System → Languages &amp; input → On-screen keyboard</strong> and enable Freech.</li>
       <li>Switch to Freech from the keyboard-switcher icon while typing.</li>
     </ol>
-  </section>
+  </div>
+</section>
 
-  <section id="versions">
-    <h2>Versions</h2>
-    <div id="version-list">
-      <div class="empty-state">No release published yet — check back soon.</div>
+<section id="versions">
+  <div class="wrap">
+    <h2>Version history</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Version</th><th>Date</th><th>What's new</th><th>Download</th></tr>
+        </thead>
+        <tbody id="version-rows">
+          <tr><td colspan="4" class="empty-state">No release published yet — check back soon.</td></tr>
+        </tbody>
+      </table>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer>Freech is free and runs entirely on-device. No account, no cloud, no ads.</footer>
-</main>
+<section id="devlog">
+  <div class="wrap">
+    <h2>Built in the open</h2>
+    <div class="devlog">
+      <p><strong>Freech is being built sprint by sprint</strong>, in the open, by a small AI-assisted development team — a manager coordinating research, engineering, and testing roles against a public sprint plan. Every architectural decision (on-device voice recognition, Latin-letter output instead of script conversion, free-forever with no cloud dependency) is documented before it's built, not decided after the fact.</p>
+      <p>The source stays private while the product takes shape, but every build that reaches this page is real, tested code — not a mockup. What you download here is exactly what shipped from that process.</p>
+    </div>
+  </div>
+</section>
+
+<footer>Freech is free and runs entirely on-device. No account, no cloud, no ads.</footer>
 
 <script>
 fetch("./versions.json", { cache: "no-store" })
   .then(r => r.ok ? r.json() : [])
   .then(versions => {
     if (!Array.isArray(versions) || versions.length === 0) return;
-    const list = document.getElementById("version-list");
-    list.innerHTML = "";
+    const rows = document.getElementById("version-rows");
+    rows.innerHTML = "";
     versions.forEach((v, i) => {
-      const card = document.createElement("div");
-      card.className = "version-card";
-      const sizeText = v.size_mb ? ` · ${v.size_mb} MB` : "";
-      card.innerHTML = `
-        <div class="version-row">
-          <span class="version-name">v${v.version}${i === 0 ? " (latest)" : ""}</span>
-          <span class="version-date">${v.date}</span>
-        </div>
-        <p class="version-notes">${v.notes || ""}</p>
-        <a class="version-dl" href="${v.apk}">Download APK${sizeText}</a>
+      const tr = document.createElement("tr");
+      const notesList = Array.isArray(v.features)
+        ? `<ul>${v.features.map(f => `<li>${f}</li>`).join("")}</ul>`
+        : (v.notes || "");
+      const tagHtml = v.prerelease ? `<span class="tag">pre-release</span>` : (i === 0 ? `<span class="tag">latest</span>` : "");
+      tr.innerHTML = `
+        <td class="ver">v${v.version}${tagHtml}</td>
+        <td class="date">${v.date}</td>
+        <td class="notes">${notesList}</td>
+        <td class="dl"><a href="${v.apk}">Download${v.size_mb ? ` (${v.size_mb} MB)` : ""}</a></td>
       `;
-      list.appendChild(card);
+      rows.appendChild(tr);
     });
     const latest = versions[0];
     const primary = document.getElementById("primary-download");
     const primarySub = document.getElementById("primary-download-sub");
     if (latest) {
       primary.href = latest.apk;
-      primarySub.textContent = `v${latest.version} · ${latest.date}`;
+      primarySub.textContent = `v${latest.version} · ${latest.date}${latest.prerelease ? " · pre-release" : ""}`;
     }
   })
   .catch(() => {});
