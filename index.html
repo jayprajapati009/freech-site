@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Freech</title>
+<meta name="description" content="Type Hindi and Gujarati in Latin letters — the way you already text. Free Android keyboard, no ads, no cloud.">
+<style>
+  :root {
+    --bg: #faf9f7;
+    --surface: #ffffff;
+    --border: #e6e2db;
+    --text: #1c1b1a;
+    --text-dim: #6b6660;
+    --accent: #b34700;
+    --accent-text: #ffffff;
+    --code-bg: #f1efe9;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #171512;
+      --surface: #201d19;
+      --border: #35302a;
+      --text: #f2ece2;
+      --text-dim: #a89e91;
+      --accent: #ff8a3d;
+      --accent-text: #1c1200;
+      --code-bg: #2a251f;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+  }
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem 6rem;
+  }
+  header { text-align: center; margin-bottom: 3rem; }
+  .wordmark {
+    font-size: 2.75rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.5rem;
+  }
+  .tagline {
+    color: var(--text-dim);
+    font-size: 1.15rem;
+    max-width: 480px;
+    margin: 0 auto 2rem;
+  }
+  .not-translate {
+    font-size: 0.95rem;
+    color: var(--text-dim);
+    max-width: 520px;
+    margin: 0 auto 2rem;
+  }
+  .not-translate code {
+    background: var(--code-bg);
+    padding: 0.1em 0.4em;
+    border-radius: 4px;
+    font-size: 0.9em;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    background: var(--accent);
+    color: var(--accent-text);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.9em 1.6em;
+    border-radius: 10px;
+    font-size: 1.05rem;
+  }
+  .btn-sub {
+    display: block;
+    margin-top: 0.6rem;
+    font-size: 0.85rem;
+    color: var(--text-dim);
+  }
+  section { margin-top: 3.5rem; }
+  h2 {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-dim);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.6rem;
+    margin-bottom: 1.25rem;
+  }
+  .version-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.1rem 1.3rem;
+    margin-bottom: 0.9rem;
+  }
+  .version-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .version-name { font-weight: 700; font-size: 1.05rem; }
+  .version-date { color: var(--text-dim); font-size: 0.85rem; }
+  .version-notes {
+    margin: 0.5rem 0 0.75rem;
+    color: var(--text-dim);
+    font-size: 0.92rem;
+  }
+  .version-dl {
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 0.92rem;
+  }
+  .version-dl:hover { text-decoration: underline; }
+  .empty-state {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    text-align: center;
+    padding: 2rem 1rem;
+    border: 1px dashed var(--border);
+    border-radius: 12px;
+  }
+  .install-steps {
+    color: var(--text-dim);
+    font-size: 0.92rem;
+    padding-left: 1.2rem;
+  }
+  .install-steps li { margin-bottom: 0.4rem; }
+  footer {
+    text-align: center;
+    margin-top: 4rem;
+    color: var(--text-dim);
+    font-size: 0.85rem;
+  }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="wordmark">Freech</div>
+    <p class="tagline">Type Hindi and Gujarati in Latin letters — the way you already text.</p>
+    <p class="not-translate">Not a translator. You type <code>kem cho</code>, you get <code>kem cho</code> — spelled and suggested correctly, instead of your keyboard treating it as broken English.</p>
+    <a class="btn" id="primary-download" href="#versions">Download latest APK</a>
+    <span class="btn-sub" id="primary-download-sub">&nbsp;</span>
+  </header>
+
+  <section id="install">
+    <h2>Install</h2>
+    <ol class="install-steps">
+      <li>Download the APK below and open it on your Android phone (allow "install from unknown sources" if asked — this app isn't on the Play Store).</li>
+      <li>Go to <strong>Settings → System → Languages &amp; input → On-screen keyboard</strong> and enable Freech.</li>
+      <li>Switch to Freech from the keyboard-switcher icon while typing.</li>
+    </ol>
+  </section>
+
+  <section id="versions">
+    <h2>Versions</h2>
+    <div id="version-list">
+      <div class="empty-state">No release published yet — check back soon.</div>
+    </div>
+  </section>
+
+  <footer>Freech is free and runs entirely on-device. No account, no cloud, no ads.</footer>
+</main>
+
+<script>
+fetch("./versions.json", { cache: "no-store" })
+  .then(r => r.ok ? r.json() : [])
+  .then(versions => {
+    if (!Array.isArray(versions) || versions.length === 0) return;
+    const list = document.getElementById("version-list");
+    list.innerHTML = "";
+    versions.forEach((v, i) => {
+      const card = document.createElement("div");
+      card.className = "version-card";
+      const sizeText = v.size_mb ? ` · ${v.size_mb} MB` : "";
+      card.innerHTML = `
+        <div class="version-row">
+          <span class="version-name">v${v.version}${i === 0 ? " (latest)" : ""}</span>
+          <span class="version-date">${v.date}</span>
+        </div>
+        <p class="version-notes">${v.notes || ""}</p>
+        <a class="version-dl" href="${v.apk}">Download APK${sizeText}</a>
+      `;
+      list.appendChild(card);
+    });
+    const latest = versions[0];
+    const primary = document.getElementById("primary-download");
+    const primarySub = document.getElementById("primary-download-sub");
+    if (latest) {
+      primary.href = latest.apk;
+      primarySub.textContent = `v${latest.version} · ${latest.date}`;
+    }
+  })
+  .catch(() => {});
+</script>
+</body>
+</html>
