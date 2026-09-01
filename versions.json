@@ -1,17 +1,26 @@
 [
   {
-    "version": "0.1.0-sprint1 (build 4)",
+    "version": "0.1.0-sprint1 (build 5)",
     "date": "2026-09-01",
     "prerelease": true,
     "features": [
-      "Backspace now repeats when held down, clearing text continuously",
-      "Number/symbol layout (\"?123\" key) now actually works",
-      "Voice input shows real status: pulsing \"Listening...\" / spinner \"Processing...\" / specific error messages",
-      "Mitigated a platform touch-dispatch issue where an early tap on the mic button could silently do nothing",
-      "Hindi + Gujarati phonetic typing engine with spelling-variant tolerance",
-      "Clipboard history manager",
-      "On-device voice input (Vosk), Latin-letter output"
+      "Fixed typing accuracy: adjacent key no longer registers from natural finger drift (touch-slop threshold added)",
+      "Permanent numbers row (1234567890) above the letters - no layout switch needed",
+      "Enter key now inserts a newline in multiline fields instead of minimizing the keyboard",
+      "Backspace repeats when held; number/symbol layout (\"?123\") works",
+      "Voice input shows real status: pulsing \"Listening...\" / spinner \"Processing...\" / specific errors",
+      "Mitigated an early-tap dead zone on the mic button",
+      "Hindi + Gujarati phonetic typing engine, clipboard history, on-device voice input (Vosk)",
+      "Known open issue: fast typing may still drop characters (#12) - investigation in progress"
     ],
+    "apk": "https://github.com/jayprajapati009/freech-site/releases/download/test-build-5/freech-v0.1.0-sprint1-debug-5.apk",
+    "size_mb": 197
+  },
+  {
+    "version": "0.1.0-sprint1 (build 4)",
+    "date": "2026-09-01",
+    "prerelease": true,
+    "features": ["Superseded by build 5 - see build 5 for current state"],
     "apk": "https://github.com/jayprajapati009/freech-site/releases/download/test-build-4/freech-v0.1.0-sprint1-debug-4.apk",
     "size_mb": 197
   },
@@ -19,7 +28,7 @@
     "version": "0.1.0-sprint1 (build 3)",
     "date": "2026-09-01",
     "prerelease": true,
-    "features": ["Superseded by build 4 — no backspace-hold, no numbers/symbols layout"],
+    "features": ["Superseded - see build 5 for current state"],
     "apk": "https://github.com/jayprajapati009/freech-site/releases/download/test-build-3/freech-v0.1.0-sprint1-debug-3.apk",
     "size_mb": 197
   },
@@ -27,7 +36,7 @@
     "version": "0.1.0-sprint1 (build 2)",
     "date": "2026-09-01",
     "prerelease": true,
-    "features": ["Superseded — see build 4 for current state"],
+    "features": ["Superseded - see build 5 for current state"],
     "apk": "https://github.com/jayprajapati009/freech-site/releases/download/test-build-2/freech-v0.1.0-sprint1-debug-2.apk",
     "size_mb": 198
   },
@@ -35,7 +44,7 @@
     "version": "0.1.0-sprint1 (build 1)",
     "date": "2026-08-31",
     "prerelease": true,
-    "features": ["Superseded — keyboard failed to render, fixed in build 2"],
+    "features": ["Superseded - keyboard failed to render, fixed in build 2"],
     "apk": "https://github.com/jayprajapati009/freech-site/releases/download/test-build-1/freech-v0.1.0-sprint1-debug.apk",
     "size_mb": 198
   }
