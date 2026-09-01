@@ -2,7 +2,7 @@
   {
     "version": "0.1.0-sprint1 (build 7)",
     "date": "2026-09-01",
-    "prerelease": false,
+    "prerelease": true,
     "features": [
       "Sprint 1 is formally closed - core functionality confirmed working end-to-end",
       "Voice input language switch: tap the HI/GU toggle next to the mic button so voice input runs the right language model",
