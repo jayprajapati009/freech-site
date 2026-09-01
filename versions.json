@@ -1,12 +1,23 @@
 [
   {
-    "version": "0.1.0-sprint1",
+    "version": "0.1.0-sprint1 (build 2)",
+    "date": "2026-09-01",
+    "prerelease": true,
+    "features": [
+      "Fixed: keyboard crashed on switch-to (IME theme attribute resolution bug)",
+      "Hindi + Gujarati phonetic typing engine, verified live: spelling-variant tolerance (e.g. \"kese\" → \"kaise\") confirmed on-device",
+      "Clipboard history manager",
+      "Voice input: tap-to-record, on-device Vosk speech recognition, Latin-letter output"
+    ],
+    "apk": "https://github.com/jayprajapati009/freech-site/releases/download/test-build-2/freech-v0.1.0-sprint1-debug-2.apk",
+    "size_mb": 198
+  },
+  {
+    "version": "0.1.0-sprint1 (build 1)",
     "date": "2026-08-31",
     "prerelease": true,
     "features": [
-      "Hindi + Gujarati phonetic typing engine with spelling-variant tolerance",
-      "Clipboard history manager",
-      "Voice input: tap-to-record, on-device Vosk speech recognition, Latin-letter output"
+      "Superseded — keyboard failed to render due to a theme attribute bug, fixed in build 2"
     ],
     "apk": "https://github.com/jayprajapati009/freech-site/releases/download/test-build-1/freech-v0.1.0-sprint1-debug.apk",
     "size_mb": 198
