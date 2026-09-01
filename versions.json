@@ -1,5 +1,19 @@
 [
   {
+    "version": "0.1.0-sprint1 (build 7)",
+    "date": "2026-09-01",
+    "prerelease": false,
+    "features": [
+      "Sprint 1 is formally closed - core functionality confirmed working end-to-end",
+      "Voice input language switch: tap the HI/GU toggle next to the mic button so voice input runs the right language model",
+      "Hindi transliteration: fixed schwa deletion (kar not kara, sab not saba)",
+      "Gujarati voice quality worth retesting - the previous fix means its recognizer is now actually being used",
+      "Includes all fixes from builds 1-6: typing accuracy, numbers row, Enter key, backspace-hold, symbols layout, voice feedback UI, mic permission mitigation, and the critical Vosk model-loading fix"
+    ],
+    "apk": "https://github.com/jayprajapati009/freech-site/releases/download/test-build-7/freech-v0.1.0-sprint1-debug-7.apk",
+    "size_mb": 197
+  },
+  {
     "version": "0.1.0-sprint1 (build 6)",
     "date": "2026-09-01",
     "prerelease": true,
