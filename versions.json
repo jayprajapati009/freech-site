@@ -1,5 +1,18 @@
 [
   {
+    "version": "0.1.0-sprint1 (build 8)",
+    "date": "2026-09-02",
+    "prerelease": true,
+    "features": [
+      "Voice input now supports Hindi, Gujarati, and English - tap the toggle next to the mic button to cycle through all three",
+      "English speech is passed through directly, already in Latin letters, no transliteration needed",
+      "Includes the voice language switch and Hindi schwa-deletion fixes from build 7, plus everything from builds 1-6",
+      "APK is larger now (three bundled speech models, ~238MB unpacked) - expected for this pre-launch test phase"
+    ],
+    "apk": "https://github.com/jayprajapati009/freech-site/releases/download/test-build-8/freech-v0.1.0-sprint1-debug-8.apk",
+    "size_mb": 238
+  },
+  {
     "version": "0.1.0-sprint1 (build 7)",
     "date": "2026-09-01",
     "prerelease": true,
