@@ -1,5 +1,21 @@
 [
   {
+    "version": "0.2.0-sprint2 (build 9)",
+    "date": "2026-09-02",
+    "prerelease": true,
+    "features": [
+      "NEW: Settings screen (launcher icon + system Settings gear icon) with keyboard size presets (Small/Medium/Large) and an autocorrect/suggestions on-off toggle",
+      "NEW: Glide/swipe typing - trace your finger across letters instead of tapping each one",
+      "FIXED: tapping a suggestion chip was committing a blank space instead of the word - now works correctly",
+      "FIXED: Gujarati transliteration schwa-deletion (kar not kara), matching the earlier Hindi fix but researched separately for Gujarati",
+      "FIXED: select-all + backspace now clears the whole selection, not one character",
+      "Smaller download: ~211MB (down from ~238MB) via arm64-only builds; further shrinking applies to real signed releases",
+      "Includes everything from Sprint 1 builds 1-8: typing, clipboard, voice input in Hindi/Gujarati/English, numbers row, Enter key fix, backspace-hold, symbols layout"
+    ],
+    "apk": "https://github.com/jayprajapati009/freech-site/releases/download/test-build-9/freech-v0.1.0-sprint2-debug-9.apk",
+    "size_mb": 211
+  },
+  {
     "version": "0.1.0-sprint1 (build 8)",
     "date": "2026-09-02",
     "prerelease": true,
